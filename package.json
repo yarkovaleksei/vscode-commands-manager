@@ -42,8 +42,17 @@
         }
       }
     },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "custom-commands",
+          "title": "Custom Commands Manager",
+          "icon": "resources/icon.svg"
+        }
+      ]
+    },
     "views": {
-      "explorer": [
+      "custom-commands": [
         {
           "icon": "$(terminal)",
           "id": "customCommandsView",
@@ -144,13 +153,14 @@
   },
   "scripts": {
     "vscode:prepublish": "npm run package",
-    "compile": "npm run clear-dist && npm run check-types && npm run lint && node esbuild.js && npm run copy-l10n && npm run copy-icons",
-    "copy-l10n": "cpy l10n dist",
-    "copy-icons": "cpy icon.png dist/ && cpy icon-dark.png dist/",
+    "compile": "npm run clear-dist && npm run check-types && npm run lint && node esbuild.js && npm-run-all -p copy:*",
+    "copy:l10n": "cpy l10n dist",
+    "copy:icons": "cpy icon.png dist/ && cpy icon-dark.png dist/",
+    "copy:resources": "cpy resources dist",
     "watch": "npm-run-all -p watch:*",
     "watch:esbuild": "node esbuild.js --watch",
     "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
-    "package": "npm run clear-dist && npm run check-types && npm run lint && node esbuild.js --production && npm run copy-l10n && npm run copy-icons",
+    "package": "npm run clear-dist && npm run check-types && npm run lint && node esbuild.js --production && npm-run-all -p copy:*",
     "compile-tests": "tsc -p . --outDir dist",
     "watch-tests": "tsc -p . -w --outDir dist",
     "pretest": "npm run compile-tests && npm run compile && npm run lint",
@@ -167,7 +177,6 @@
     "@typescript-eslint/parser": "^8.31.1",
     "@vscode/test-cli": "^0.0.10",
     "@vscode/test-electron": "^2.5.2",
-    "canvas": "^3.1.1",
     "cpy-cli": "^5.0.0",
     "esbuild": "^0.25.3",
     "eslint": "^9.25.1",
