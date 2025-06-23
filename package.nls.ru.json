@@ -1,0 +1,18 @@
+{
+  "command.addCommand": "Добавить команду",
+  "command.addGroup": "Добавить группу",
+  "command.deleteCommand": "Удалить команду",
+  "command.deleteGroup": "Удалить группу",
+  "command.editCommand": "Редактировать команду",
+  "command.editGroup": "Редактировать группу",
+  "command.execute": "Выполнить команду",
+  "command.executeGroup": "Выполнить все команды",
+  "command.refresh": "Обновить",
+  "configuration.language.description": "Выберите язык для расширения",
+  "configuration.language.title": "Язык интерфейса",
+  "configuration.timeout.description": "Время ожидания выполнения команд (секунды)",
+  "configuration.timeout.title": "Таймаут команд",
+  "language.en": "Английский",
+  "language.ru": "Русский",
+  "view.title": "Пользовательские команды"
+}

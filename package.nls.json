@@ -1,0 +1,18 @@
+{
+  "command.addCommand": "Add New Command",
+  "command.addGroup": "Add New Group",
+  "command.deleteCommand": "Delete Command",
+  "command.deleteGroup": "Delete Group",
+  "command.editCommand": "Edit Command",
+  "command.editGroup": "Edit Group",
+  "command.execute": "Execute Command",
+  "command.executeGroup": "Execute All Commands",
+  "command.refresh": "Refresh",
+  "configuration.language.description": "Select display language for the extension",
+  "configuration.language.title": "Interface Language",
+  "configuration.timeout.description": "Timeout for command execution in seconds",
+  "configuration.timeout.title": "Command Timeout",
+  "language.en": "English",
+  "language.ru": "Russian",
+  "view.title": "Custom Commands"
+}
