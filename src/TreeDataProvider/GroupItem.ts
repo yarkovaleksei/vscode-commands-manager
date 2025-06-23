@@ -6,10 +6,7 @@ export class GroupItem extends vscode.TreeItem {
   contextValue = 'group';
   groupId: string;
 
-  constructor(
-    public readonly group: Group,
-    private context: vscode.ExtensionContext
-  ) {
+  constructor(public readonly group: Group) {
     super(group.name, vscode.TreeItemCollapsibleState.Collapsed);
 
     this.id = group.id;

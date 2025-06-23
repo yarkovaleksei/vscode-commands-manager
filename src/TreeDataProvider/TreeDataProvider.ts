@@ -38,10 +38,12 @@ export class TreeDataProvider
   private async getGroups(): Promise<GroupItem[]> {
     const data = getStorageData(this.context);
 
-    return data.groups.map((group) => new GroupItem(group, this.context));
+    return data.groups.map((group) => new GroupItem(group));
   }
 
-  private async getCommands(groupId: string): Promise<CommandItem[]> {
+  private async getCommands(
+    groupId: GroupItem['groupId']
+  ): Promise<CommandItem[]> {
     const data = getStorageData(this.context);
 
     return data.commands
