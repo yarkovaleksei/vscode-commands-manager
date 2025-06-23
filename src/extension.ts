@@ -27,14 +27,14 @@ export function activate(context: vscode.ExtensionContext) {
   });
 
   context.subscriptions.push(
-    vscode.commands.registerCommand('customCommands.refresh', () =>
+    vscode.commands.registerCommand('commandsManager.refresh', () =>
       treeDataProvider.refresh()
     )
   );
 
   context.subscriptions.push(
     vscode.workspace.onDidChangeConfiguration((e) => {
-      if (e.affectsConfiguration('customCommands.language')) {
+      if (e.affectsConfiguration('commandsManager.language')) {
         vscode.window.showInformationMessage(t('message.restart'));
       }
     })
@@ -44,27 +44,27 @@ export function activate(context: vscode.ExtensionContext) {
   const refreshTree = () => treeDataProvider.refresh();
 
   const commands = [
-    vscode.commands.registerCommand('customCommands.addGroup', () =>
+    vscode.commands.registerCommand('commandsManager.addGroup', () =>
       addGroup(context).then(refreshTree)
     ),
 
     vscode.commands.registerCommand(
-      'customCommands.addCommand',
+      'commandsManager.addCommand',
       (group?: Group) => addCommand(context, group?.id).then(refreshTree)
     ),
 
     vscode.commands.registerCommand(
-      'customCommands.editGroup',
+      'commandsManager.editGroup',
       (group: GroupItem) => editGroup(context, group).then(refreshTree)
     ),
 
     vscode.commands.registerCommand(
-      'customCommands.editCommand',
+      'commandsManager.editCommand',
       (command: CommandItem) => editCommand(context, command).then(refreshTree)
     ),
 
     vscode.commands.registerCommand(
-      'customCommands.deleteGroup',
+      'commandsManager.deleteGroup',
       (group: GroupItem) =>
         deleteGroup(context, group).then((deleted) => {
           if (deleted) {
@@ -74,7 +74,7 @@ export function activate(context: vscode.ExtensionContext) {
     ),
 
     vscode.commands.registerCommand(
-      'customCommands.deleteCommand',
+      'commandsManager.deleteCommand',
       (command: CommandItem) =>
         deleteCommand(context, command).then((deleted) => {
           if (deleted) {
@@ -84,12 +84,12 @@ export function activate(context: vscode.ExtensionContext) {
     ),
 
     vscode.commands.registerCommand(
-      'customCommands.executeCommand',
+      'commandsManager.executeCommand',
       (command: string | CommandItem) => executeCommand(context, command)
     ),
 
     vscode.commands.registerCommand(
-      'customCommands.executeGroup',
+      'commandsManager.executeGroup',
       (group: Group) => executeGroup(context, group)
     ),
   ];

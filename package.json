@@ -1,5 +1,5 @@
 {
-  "name": "custom-commands",
+  "name": "commands-manager",
   "displayName": "Custom Commands Manager",
   "description": "Manage and execute custom command groups with icons and multilingual support",
   "version": "0.0.1",
@@ -26,7 +26,7 @@
     "configuration": {
       "title": "Custom Commands Manager",
       "properties": {
-        "customCommands.language": {
+        "commandsManager.language": {
           "type": "string",
           "enum": [
             "en",
@@ -35,7 +35,7 @@
           "default": "en",
           "description": "Interface language for the extension"
         },
-        "customCommands.commandTimeout": {
+        "commandsManager.commandTimeout": {
           "type": "number",
           "default": 30,
           "description": "Timeout for command execution in seconds"
@@ -45,14 +45,14 @@
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "custom-commands",
+          "id": "commands-manager",
           "title": "Custom Commands Manager",
           "icon": "resources/icon.svg"
         }
       ]
     },
     "views": {
-      "custom-commands": [
+      "commands-manager": [
         {
           "icon": "$(terminal)",
           "id": "customCommandsView",
@@ -62,89 +62,89 @@
     },
     "commands": [
       {
-        "command": "customCommands.refresh",
+        "command": "commandsManager.refresh",
         "title": "%command.refresh%"
       },
       {
-        "command": "customCommands.addGroup",
+        "command": "commandsManager.addGroup",
         "title": "%command.addGroup%"
       },
       {
-        "command": "customCommands.addCommand",
+        "command": "commandsManager.addCommand",
         "title": "%command.addCommand%"
       },
       {
-        "command": "customCommands.editGroup",
+        "command": "commandsManager.editGroup",
         "title": "%command.editGroup%"
       },
       {
-        "command": "customCommands.editCommand",
+        "command": "commandsManager.editCommand",
         "title": "%command.editCommand%"
       },
       {
-        "command": "customCommands.executeCommand",
+        "command": "commandsManager.executeCommand",
         "title": "%command.execute%",
         "enablement": "true"
       },
       {
-        "command": "customCommands.executeGroup",
+        "command": "commandsManager.executeGroup",
         "title": "%command.executeGroup%"
       },
       {
-        "command": "customCommands.deleteGroup",
+        "command": "commandsManager.deleteGroup",
         "title": "%command.deleteGroup%"
       },
       {
-        "command": "customCommands.deleteCommand",
+        "command": "commandsManager.deleteCommand",
         "title": "%command.deleteCommand%"
       }
     ],
     "menus": {
       "view/title": [
         {
-          "command": "customCommands.refresh",
+          "command": "commandsManager.refresh",
           "group": "navigation",
           "when": "view == customCommandsView"
         },
         {
-          "command": "customCommands.addGroup",
+          "command": "commandsManager.addGroup",
           "group": "navigation",
           "when": "view == customCommandsView"
         }
       ],
       "view/item/context": [
         {
-          "command": "customCommands.addCommand",
+          "command": "commandsManager.addCommand",
           "group": "context",
           "when": "view == customCommandsView && viewItem == group"
         },
         {
-          "command": "customCommands.editGroup",
+          "command": "commandsManager.editGroup",
           "group": "context",
           "when": "view == customCommandsView && viewItem == group"
         },
         {
-          "command": "customCommands.deleteGroup",
+          "command": "commandsManager.deleteGroup",
           "group": "context",
           "when": "view == customCommandsView && viewItem == group"
         },
         {
-          "command": "customCommands.executeGroup",
+          "command": "commandsManager.executeGroup",
           "group": "context",
           "when": "view == customCommandsView && viewItem == group"
         },
         {
-          "command": "customCommands.editCommand",
+          "command": "commandsManager.editCommand",
           "group": "context",
           "when": "view == customCommandsView && viewItem == command"
         },
         {
-          "command": "customCommands.deleteCommand",
+          "command": "commandsManager.deleteCommand",
           "group": "context",
           "when": "view == customCommandsView && viewItem == command"
         },
         {
-          "command": "customCommands.executeCommand",
+          "command": "commandsManager.executeCommand",
           "group": "context",
           "when": "view == customCommandsView && viewItem == command"
         }

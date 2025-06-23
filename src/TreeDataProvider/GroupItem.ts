@@ -15,8 +15,8 @@ export class GroupItem extends vscode.TreeItem {
     this.setIcon();
 
     this.command = {
-      title: t('customCommands.command.executeGroup'),
-      command: 'customCommands.executeGroup',
+      title: t('commandsManager.command.executeGroup'),
+      command: 'commandsManager.executeGroup',
       arguments: [this.group],
     };
   }

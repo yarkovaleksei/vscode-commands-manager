@@ -32,7 +32,7 @@ class LocalizationManager {
   }
 
   private loadLanguage(): void {
-    const config = vscode.workspace.getConfiguration('customCommands');
+    const config = vscode.workspace.getConfiguration('commandsManager');
 
     this.currentLanguage = config.get<string>('language', 'en');
 

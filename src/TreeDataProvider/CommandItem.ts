@@ -10,8 +10,8 @@ export class CommandItem extends vscode.TreeItem {
 
     this.tooltip = cmd.command;
     this.command = {
-      title: t('customCommands.command.execute'),
-      command: 'customCommands.executeCommand',
+      title: t('commandsManager.command.execute'),
+      command: 'commandsManager.executeCommand',
       arguments: [cmd.command],
     };
     this.setIcon();

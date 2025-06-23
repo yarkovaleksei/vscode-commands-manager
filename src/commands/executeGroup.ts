@@ -7,7 +7,7 @@ export async function executeGroup(
   context: vscode.ExtensionContext,
   group: Group
 ) {
-  const config = vscode.workspace.getConfiguration('customCommands');
+  const config = vscode.workspace.getConfiguration('commandsManager');
   const timeoutSeconds = config.get<number>('commandTimeout', 30);
 
   const data = getStorageData(context);

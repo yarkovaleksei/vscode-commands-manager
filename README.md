@@ -1,1 +1,1 @@
-# custom-commands
+# commands-manager
