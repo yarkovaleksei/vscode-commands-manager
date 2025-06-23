@@ -22,7 +22,7 @@ export async function deleteCommand(
   const data = getStorageData(context);
 
   // Удаляем команду
-  data.commands = data.commands.filter((cmd) => cmd.id !== cmd.id);
+  data.commands = data.commands.filter((commandItem) => commandItem.id !== cmd.id);
 
   await context.globalState.update('customCommandsData', data);
 

@@ -22,10 +22,10 @@ export async function deleteGroup(
   const data = getStorageData(context);
 
   // Удаляем группу
-  data.groups = data.groups.filter((g) => g.id !== grp.id);
+  data.groups = data.groups.filter((groupItem) => groupItem.id !== grp.id);
 
   // Удаляем все команды этой группы
-  data.commands = data.commands.filter((cmd) => cmd.groupId !== grp.id);
+  data.commands = data.commands.filter((commandItem) => commandItem.groupId !== grp.id);
 
   await context.globalState.update('customCommandsData', data);
 
