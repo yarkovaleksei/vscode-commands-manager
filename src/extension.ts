@@ -1,11 +1,14 @@
 import * as vscode from 'vscode';
-import { addGroup } from './commands/addGroup';
-import { addCommand } from './commands/addCommand';
-import { editGroup } from './commands/editGroup';
-import { editCommand } from './commands/editCommand';
-import { executeGroup } from './commands/executeGroup';
-import { deleteGroup } from './commands/deleteGroup';
-import { deleteCommand } from './commands/deleteCommand';
+import {
+  addCommand,
+  addGroup,
+  editCommand,
+  editGroup,
+  executeCommand,
+  executeGroup,
+  deleteCommand,
+  deleteGroup,
+} from './commands';
 import type { Group } from './models';
 import { initLocalization, t } from './locale';
 import {
@@ -81,23 +84,8 @@ export function activate(context: vscode.ExtensionContext) {
     ),
 
     vscode.commands.registerCommand(
-      'customCommands.execute',
-      (command: string | CommandItem) => {
-        /**
-         * При клике на команду в дереве сюда приходит строка (непосредственно команда).
-         * А при выборе пункта меню "Выполнить команду" сюда приходит объект типа CommandItem.
-         */
-        const terminal =
-          vscode.window.activeTerminal || vscode.window.createTerminal();
-        terminal.show();
-
-        const executedCommandString =
-          typeof command === 'string'
-            ? command
-            : command.getCommandItem().command;
-
-        terminal.sendText(executedCommandString);
-      }
+      'customCommands.executeCommand',
+      (command: string | CommandItem) => executeCommand(context, command)
     ),
 
     vscode.commands.registerCommand(

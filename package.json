@@ -82,7 +82,7 @@
         "title": "%command.editCommand%"
       },
       {
-        "command": "customCommands.execute",
+        "command": "customCommands.executeCommand",
         "title": "%command.execute%",
         "enablement": "true"
       },
@@ -144,7 +144,7 @@
           "when": "view == customCommandsView && viewItem == command"
         },
         {
-          "command": "customCommands.execute",
+          "command": "customCommands.executeCommand",
           "group": "context",
           "when": "view == customCommandsView && viewItem == command"
         }
