@@ -1,46 +1,9 @@
 import * as vscode from 'vscode';
 import { t } from './locale';
-
-const COMMON_ICONS = [
-  'play',
-  'debug-start',
-  'run',
-  'terminal',
-  'zap',
-  'rocket',
-  'check',
-  'circle-filled',
-  'circle-outline',
-  'circle-slash',
-  'tag',
-  'bell',
-  'star',
-  'heart',
-  'eye',
-  'eye-closed',
-  'lightbulb',
-  'flame',
-  'gear',
-  'settings',
-  'tools',
-  'wand',
-  'extensions',
-  'package',
-  'folder',
-  'folder-opened',
-  'file',
-  'file-code',
-  'symbol-method',
-  'symbol-key',
-  'symbol-event',
-  'symbol-variable',
-  'pulse',
-  'graph',
-  'dashboard',
-];
+import { vscodeDefaultIcons } from './vscodeDefaultIcons';
 
 export async function pickIcon(defaultIcon = ''): Promise<string | undefined> {
-  const items = COMMON_ICONS.map((icon) => ({
+  const items = vscodeDefaultIcons.map((icon) => ({
     label: `$(${icon})`,
     description: icon,
     icon: icon,

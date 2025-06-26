@@ -68,89 +68,98 @@
     "commands": [
       {
         "command": "commandsManager.refresh",
-        "title": "%command.refresh%"
+        "title": "%command.refresh%",
+				"icon": "$(refresh)"
       },
       {
         "command": "commandsManager.addGroup",
-        "title": "%command.addGroup%"
+        "title": "%command.addGroup%",
+				"icon": "$(add)"
       },
       {
         "command": "commandsManager.addCommand",
-        "title": "%command.addCommand%"
+        "title": "%command.addCommand%",
+				"icon": "$(add)"
       },
       {
         "command": "commandsManager.editGroup",
-        "title": "%command.editGroup%"
+        "title": "%command.editGroup%",
+				"icon": "$(edit)"
       },
       {
         "command": "commandsManager.editCommand",
-        "title": "%command.editCommand%"
+        "title": "%command.editCommand%",
+				"icon": "$(edit)"
       },
       {
         "command": "commandsManager.executeCommand",
         "title": "%command.execute%",
-        "enablement": "true"
+        "enablement": "true",
+				"icon": "$(run)"
       },
       {
         "command": "commandsManager.executeGroup",
-        "title": "%command.executeGroup%"
+        "title": "%command.executeGroup%",
+				"icon": "$(run)"
       },
       {
         "command": "commandsManager.deleteGroup",
-        "title": "%command.deleteGroup%"
+        "title": "%command.deleteGroup%",
+				"icon": "$(trash)"
       },
       {
         "command": "commandsManager.deleteCommand",
-        "title": "%command.deleteCommand%"
+        "title": "%command.deleteCommand%",
+				"icon": "$(trash)"
       }
     ],
     "menus": {
       "view/title": [
         {
           "command": "commandsManager.refresh",
-          "group": "navigation",
+          "group": "navigation@2",
           "when": "view == customCommandsView"
         },
         {
           "command": "commandsManager.addGroup",
-          "group": "navigation",
+          "group": "navigation@1",
           "when": "view == customCommandsView"
         }
       ],
       "view/item/context": [
         {
+          "command": "commandsManager.executeGroup",
+          "group": "inline@1",
+          "when": "view == customCommandsView && viewItem == group"
+        },
+        {
           "command": "commandsManager.addCommand",
-          "group": "context",
+          "group": "inline@2",
           "when": "view == customCommandsView && viewItem == group"
         },
         {
           "command": "commandsManager.editGroup",
-          "group": "context",
+          "group": "inline@3",
           "when": "view == customCommandsView && viewItem == group"
         },
         {
           "command": "commandsManager.deleteGroup",
-          "group": "context",
+          "group": "inline@4",
           "when": "view == customCommandsView && viewItem == group"
         },
         {
-          "command": "commandsManager.executeGroup",
-          "group": "context",
-          "when": "view == customCommandsView && viewItem == group"
+          "command": "commandsManager.executeCommand",
+          "group": "inline@1",
+          "when": "view == customCommandsView && viewItem == command"
         },
         {
           "command": "commandsManager.editCommand",
-          "group": "context",
+          "group": "inline@2",
           "when": "view == customCommandsView && viewItem == command"
         },
         {
           "command": "commandsManager.deleteCommand",
-          "group": "context",
-          "when": "view == customCommandsView && viewItem == command"
-        },
-        {
-          "command": "commandsManager.executeCommand",
-          "group": "context",
+          "group": "inline@3",
           "when": "view == customCommandsView && viewItem == command"
         }
       ]
