@@ -2,26 +2,43 @@ import * as vscode from 'vscode';
 import { t } from './locale';
 import { vscodeDefaultIcons } from './vscodeDefaultIcons';
 
+interface QuickPickItem extends vscode.QuickPickItem {
+  icon?: string;
+}
+
 export async function pickIcon(defaultIcon = ''): Promise<string | undefined> {
-  const items = vscodeDefaultIcons.map((icon) => ({
-    label: `$(${icon})`,
-    description: icon,
-    icon: icon,
-  }));
+  const items = vscodeDefaultIcons.map((icon) => {
+    const item: QuickPickItem = {
+      label: `$(${icon})`,
+      description: icon,
+      icon,
+    };
+
+    return item;
+  });
+
+  /**
+   * Сортируем иконки так, чтобы текущая выбранная была первой.
+   * Так она будет сразу в фокусе и достаточно нажать Enter чтобы выбрать.
+   */
+  items.sort((a, b) => a.icon === defaultIcon ? -1 : 1);
+
+  const noIconItem: QuickPickItem = {
+    label: `$(close) ${t('icon.noIcon')}`,
+    description: t('icon.noIcon.description'),
+    icon: undefined,
+  };
+  const customIconItem: QuickPickItem = {
+    label: `$(close) ${t('icon.custom')}`,
+    description: t('icon.custom.description'),
+    icon: 'custom',
+  };
 
   const selected = await vscode.window.showQuickPick(
     [
       ...items,
-      {
-        label: `$(close) ${t('icon.noIcon')}`,
-        description: t('icon.noIcon.description'),
-        icon: undefined,
-      },
-      {
-        label: `$(edit) ${t('icon.custom')}`,
-        description: t('icon.custom.description'),
-        icon: 'custom',
-      },
+      noIconItem,
+      customIconItem,
     ],
     {
       placeHolder: t('select.icon'),

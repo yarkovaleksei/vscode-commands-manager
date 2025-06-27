@@ -100,7 +100,7 @@
       {
         "command": "commandsManager.executeGroup",
         "title": "%command.executeGroup%",
-				"icon": "$(run)"
+				"icon": "$(run-all)"
       },
       {
         "command": "commandsManager.deleteGroup",

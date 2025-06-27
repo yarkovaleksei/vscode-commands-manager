@@ -27,7 +27,7 @@ export async function editCommand(
     return;
   }
 
-  const newIcon = await pickIcon(cmd.icon || 'play');
+  const newIcon = await pickIcon(cmd.icon || 'file');
   const data = getStorageData(context);
   const index = data.commands.findIndex((c) => c.id === cmd.id);
 
